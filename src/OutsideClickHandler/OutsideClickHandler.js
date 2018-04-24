@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import React, { Component } from "react";
-import { addEventListener, removeEventListener } from "consolidated-events";
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { addEventListener, removeEventListener } from 'consolidated-events';
 
 /*
   Usage:
@@ -27,7 +27,7 @@ export default class OutsideClickHandler extends Component {
     // will not prevent all outside click handlers from firing
     this.clickHandle = addEventListener(
       document,
-      "click",
+      'click',
       this.onOutsideClick,
       { capture: true }
     );
