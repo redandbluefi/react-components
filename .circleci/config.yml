@@ -32,4 +32,4 @@ jobs:
           name: Publish
           command: |
             echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-            npm publish
+            npm publish --access public
