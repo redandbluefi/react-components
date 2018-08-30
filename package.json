@@ -35,7 +35,8 @@
     "react-test-renderer": "^15.5.4"
   },
   "dependencies": {
-    "consolidated-events": "^1.0.1"
+    "consolidated-events": "^1.0.1",
+    "qs": "^6.5.2"
   },
   "jest": {
     "moduleDirectories": ["src", "node_modules"]
