@@ -51,13 +51,13 @@ export default class OutsideClickHandler extends Component {
       return null;
     }
     return (
-      <div
+      <React.Fragment
         ref={ref => {
           this.childNode = ref;
         }}
       >
         {this.props.children}
-      </div>
+      </React.Fragment>
     );
   }
 }
