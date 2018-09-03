@@ -12,10 +12,12 @@ import { addEventListener, removeEventListener } from 'consolidated-events';
 export default class OutsideClickHandler extends Component {
   static propTypes = {
     children: PropTypes.node,
+    as: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     onOutsideClick: PropTypes.func
   };
   static defaultProps = {
-    onOutsideClick() {}
+    onOutsideClick() {},
+    as: 'div'
   };
   constructor(props) {
     super(props);
@@ -50,14 +52,15 @@ export default class OutsideClickHandler extends Component {
     if (!this.props.children) {
       return null;
     }
+    const Element = this.props.as;
     return (
-      <React.Fragment
+      <Element
         ref={ref => {
           this.childNode = ref;
         }}
       >
         {this.props.children}
-      </React.Fragment>
+      </Element>
     );
   }
 }
