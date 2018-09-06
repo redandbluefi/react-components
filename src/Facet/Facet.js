@@ -121,13 +121,14 @@ export default function facetFactory(attribute, searchRoot = '/') {
         const temporaryFilters = {};
         attr.forEach((key, i) => {
           if (!values) {
+            // If falsy value given, remove the filter
             this.props.toggleFilter(key, null);
-            return;
+          } else {
+            // When value, read the value for each attribute key and set filter
+            const value = Array.isArray(values) ? values[i] : values;
+            this.props.toggleFilter(key, value);
+            temporaryFilters[key] = value;
           }
-          // When value, read the value for each attribute key and set filter
-          const value = Array.isArray(values) ? values[i] : values;
-          this.props.toggleFilter(key, value);
-          temporaryFilters[key] = value;
         });
         if (search) {
           this.doSearch(temporaryFilters);
