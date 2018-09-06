@@ -109,9 +109,9 @@ export default function facetFactory(attribute, searchRoot = '/') {
       // Search by combining all the filters into an URL query and pushing it to URL
       doSearch(filters = null) {
         const searchFilters = Object.assign({}, this.props.filters, filters);
-        const searchParams = Object.keys(searchFilters).map(
-          key => `${key}=${searchFilters[key]}`
-        );
+        const searchParams = Object.keys(searchFilters)
+          .filter(f => searchFilters[f] !== null)
+          .map(key => `${key}=${searchFilters[key]}`);
         this.props.history.push(`${searchRoot}?${searchParams.join('&')}`);
       }
 
@@ -123,6 +123,7 @@ export default function facetFactory(attribute, searchRoot = '/') {
           if (!values) {
             // If falsy value given, remove the filter
             this.props.toggleFilter(key, null);
+            temporaryFilters[key] = null;
           } else {
             // When value, read the value for each attribute key and set filter
             const value = Array.isArray(values) ? values[i] : values;
