@@ -1,7 +1,7 @@
 {
   "name": "@redandblue/components",
   "description": "UI-less, generic React components",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "lib/index.js",
   "author": "Red & Blue Oy",
   "repository": "https://github.com/redandbluefi/react-components",
@@ -39,12 +39,7 @@
     "qs": "^6.5.2"
   },
   "jest": {
-    "moduleDirectories": [
-      "src",
-      "node_modules"
-    ]
+    "moduleDirectories": ["src", "node_modules"]
   },
-  "files": [
-    "lib/"
-  ]
+  "files": ["lib/"]
 }
