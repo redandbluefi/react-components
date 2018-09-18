@@ -112,7 +112,13 @@ export default function facetFactory(attribute, searchRoot = '/') {
         const searchParams = Object.keys(searchFilters).map(
           key => `${key}=${searchFilters[key]}`
         );
-        this.props.history.push(`${searchRoot}?${searchParams.join('&')}`);
+        let searchPath = searchRoot;
+        if (typeof searchRoot === 'object') {
+          if (searchRoot.currentPage === true) {
+            searchPath = this.props.location.pathname;
+          }
+        }
+        this.props.history.push(`${searchPath}?${searchParams.join('&')}`);
       }
 
       applyFilter(values, search) {
